@@ -2,10 +2,6 @@ package momenthere.trackmap;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -17,14 +13,14 @@ import momenhere.tools.JsonService;
 import momenhere.tools.JsonTools;
 import momenthere.login.Message;
 
-public class TrackmapAction extends HttpServlet {
+public class LocationAction extends HttpServlet {
 
-	private JsonService2 service = new JsonService2();
+	private JsonService service =  new JsonService();
 
 	/**
 	 * Constructor of the object.
 	 */
-	public TrackmapAction() {
+	public LocationAction() {
 		super();
 	}
 
@@ -38,51 +34,42 @@ public class TrackmapAction extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
-	 * 
+	 *
 	 * This method is called when a form has its tag value method equals to get.
 	 * 
-	 * @param request
-	 *            the request send by the client to the server
-	 * @param response
-	 *            the response send by the server to the client
-	 * @throws ServletException
-	 *             if an error occurred
-	 * @throws IOException
-	 *             if an error occurred
+	 * @param request the request send by the client to the server
+	 * @param response the response send by the server to the client
+	 * @throws ServletException if an error occurred
+	 * @throws IOException if an error occurred
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		this.doPost(request, response);
+		doPost(request, response);
 	}
 
 	/**
 	 * The doPost method of the servlet. <br>
+	 *
+	 * This method is called when a form has its tag value method equals to post.
 	 * 
-	 * This method is called when a form has its tag value method equals to
-	 * post.
-	 * 
-	 * @param request
-	 *            the request send by the client to the server
-	 * @param response
-	 *            the response send by the server to the client
-	 * @throws ServletException
-	 *             if an error occurred
-	 * @throws IOException
-	 *             if an error occurred
+	 * @param request the request send by the client to the server
+	 * @param response the response send by the server to the client
+	 * @throws ServletException if an error occurred
+	 * @throws IOException if an error occurred
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
+
 		PrintWriter out = response.getWriter();
-		System.out.print("Comeon");
 		String jsonString = "";
 		String action_flag = request.getParameter("action_flag");
-		List<Message> list = service.getlistTrackmapNode(action_flag);
-		System.out.print("list aaaa" + list.toString());
+
+		List<Message> list = service.getlistPerson(action_flag);
+		System.out.print("list " + list.toString());
 		jsonString = JsonTools.createJsonString(list);
 		out.println(jsonString);
 		out.flush();
@@ -91,9 +78,8 @@ public class TrackmapAction extends HttpServlet {
 
 	/**
 	 * Initialization of the servlet. <br>
-	 * 
-	 * @throws ServletException
-	 *             if an error occurs
+	 *
+	 * @throws ServletException if an error occurs
 	 */
 	public void init() throws ServletException {
 		// Put your code here

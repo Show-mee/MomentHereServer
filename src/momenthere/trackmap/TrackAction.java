@@ -13,18 +13,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import momenhere.tools.JsonService;
 import momenhere.tools.JsonTools;
 import momenthere.login.Message;
 
-public class TrackmapAction extends HttpServlet {
+public class TrackAction extends HttpServlet {
 
-	private JsonService2 service = new JsonService2();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JsonService2 service;
 
 	/**
 	 * Constructor of the object.
 	 */
-	public TrackmapAction() {
+	public TrackAction() {
 		super();
 	}
 
@@ -52,7 +55,7 @@ public class TrackmapAction extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println("What is wrong!!!");
 		this.doPost(request, response);
 	}
 
@@ -82,8 +85,8 @@ public class TrackmapAction extends HttpServlet {
 		String jsonString = "";
 		String action_flag = request.getParameter("action_flag");
 		List<Message> list = service.getlistTrackmapNode(action_flag);
-		System.out.print("list aaaa" + list.toString());
 		jsonString = JsonTools.createJsonString(list);
+		System.out.println(jsonString);
 		out.println(jsonString);
 		out.flush();
 		out.close();

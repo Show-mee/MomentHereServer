@@ -56,6 +56,7 @@ public class JsonService {
 				list.add(m);
 
 			}
+			connect.close();
 		} catch (Exception e) {
 			System.out.print("get data error!");
 			e.printStackTrace();

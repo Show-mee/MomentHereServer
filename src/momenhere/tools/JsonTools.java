@@ -15,11 +15,11 @@ public class JsonTools {
 	 * @return
 	 */
 	public static String createJsonString(Object value) {
-		System.out.print("value"+value.toString());
+		System.out.println("value"+value.toString());
 		Gson gson = new Gson();
-		System.out.print("11");
+		System.out.println("11");
 		String str = gson.toJson(value);//from json to string
-		System.out.print("22");
+		System.out.println("22");
 		return str;
 	}
 

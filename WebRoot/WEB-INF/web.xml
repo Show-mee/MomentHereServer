@@ -5,25 +5,25 @@
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>LoginAction</servlet-name>
-    <servlet-class>com.login.manager.LoginAction</servlet-class>
+    <servlet-class>momenthere.login.LoginAction</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>SignUpAction</servlet-name>
-    <servlet-class>com.login.manager.SignUpAction</servlet-class>
+    <servlet-class>momenthere.login.SignUpAction</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>MessageAction</servlet-name>
-    <servlet-class>com.login.manager.MessageAction</servlet-class>
+    <servlet-class>momenthere.login.MessageAction</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>InsertAction</servlet-name>
-    <servlet-class>com.login.manager.InsertAction</servlet-class>
+    <servlet-class>momenthere.login.InsertAction</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
@@ -31,6 +31,19 @@
     <servlet-name>TrackmapAction</servlet-name>
     <servlet-class>momenthere.trackmap.TrackmapAction</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TrackAction</servlet-name>
+    <servlet-class>momenthere.trackmap.TrackAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LocationAction</servlet-name>
+    <servlet-class>momenthere.trackmap.LocationAction</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>LoginAction</servlet-name>
@@ -51,6 +64,14 @@
   <servlet-mapping>
     <servlet-name>TrackmapAction</servlet-name>
     <url-pattern>/servlet/TrackmapAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TrackAction</servlet-name>
+    <url-pattern>/servlet/TrackAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LocationAction</servlet-name>
+    <url-pattern>/servlet/LocationAction</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
