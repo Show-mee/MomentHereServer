@@ -77,7 +77,7 @@ public class LoginAction extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		Boolean loginSuccess = checkLogin(username, password);
+		Boolean loginSuccess = checkLogin(username, password,response);
 
 		// out.print("name"+username+"   password"+password+" success "+loginSuccess);
 
@@ -96,8 +96,10 @@ public class LoginAction extends HttpServlet {
 
 	}
 
-	public boolean checkLogin(String username, String password) {
+	public boolean checkLogin(String username, String password,HttpServletResponse response) throws IOException {
 		flag = false;
+		PrintWriter out = response.getWriter();
+
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			// Class.forName("org.gjt.mm.mysql.Driver");
@@ -132,6 +134,7 @@ public class LoginAction extends HttpServlet {
 	/**
 	 * Initialization of the servlet. <br>
 	 * 
+	 * we
 	 * @throws ServletException
 	 *             if an error occurs
 	 */
